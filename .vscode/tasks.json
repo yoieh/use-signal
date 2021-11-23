@@ -1,0 +1,58 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "start",
+			"path": "example/",
+			"problemMatcher": [],
+			"label": "npm: start - example",
+			"detail": "node ../node_modules/react-scripts/bin/react-scripts.js start"
+		},
+
+		{
+			"type": "npm",
+			"script": "start",
+			"problemMatcher": [],
+			"label": "npm: start",
+			"detail": "microbundle-crl watch --no-compress --format modern,cjs"
+		},
+		{
+			"type": "npm",
+			"script": "test",
+			"group": {
+				"kind": "test",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"label": "npm: test",
+			"detail": "run-s test:unit test:lint test:build"
+		},
+		{
+			"type": "npm",
+			"script": "build",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"label": "npm: build",
+			"detail": "microbundle-crl --no-compress --format modern,cjs"
+		},
+
+		{
+			"type": "npm",
+			"script": "predeploy",
+			"problemMatcher": [],
+			"label": "npm: predeploy",
+			"detail": "cd example && yarn install && yarn run build"
+		},
+		{
+			"type": "npm",
+			"script": "deploy",
+			"problemMatcher": [],
+			"label": "npm: deploy",
+			"detail": "gh-pages -d example/build"
+		},
+	]
+}
