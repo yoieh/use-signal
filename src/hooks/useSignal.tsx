@@ -1,17 +1,19 @@
 import { Signal } from '@yoieh/signal'
-import { useEffect, useMemo } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 
-export function useSignal<
-  Listener extends (...args: any[]) => any
->(): Signal<Listener> {
+export function useSignal<Listener extends (...args: any[]) => any>() {
   const signal = useMemo(() => new Signal<Listener>(), [])
+  const [listeners, setListeners] = useState(signal.listeners)
+
+  const dispatch = useCallback(signal.dispatch, [signal])
+  const add = useCallback(signal.add, [signal])
+  const remove = useCallback(signal.remove, [signal])
+  const removeAll = useCallback(signal.removeAll, [signal])
 
   useEffect(() => {
-    return () => {
-      signal.removeAll()
-    }
-  })
+    setListeners(signal.listeners)
+  }, [])
 
-  return signal
+  return { dispatch, add, remove, removeAll, listeners }
 }
 export default useSignal

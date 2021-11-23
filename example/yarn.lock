@@ -1956,6 +1956,14 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
+"@yoieh/signal@link:../node_modules/@yoieh/signal":
+  version "0.0.0"
+  uid ""
+
+"@yoieh/use-signal@link:..":
+  version "0.0.0"
+  uid ""
+
 abab@^2.0.0:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.5.tgz#c0b678fb32d60fc1219c784d6a826fe385aeb79a"
@@ -10516,10 +10524,6 @@ url@^0.11.0:
   dependencies:
     punycode "1.3.2"
     querystring "0.2.0"
-
-"use-signal@link:..":
-  version "0.0.0"
-  uid ""
 
 use@^3.1.0:
   version "3.1.1"
