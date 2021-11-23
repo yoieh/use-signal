@@ -24,10 +24,10 @@
     "test:lint": "eslint -c .eslintrc --ext .tsx ./src",
     "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
-    "test:format": "prettier --write \"src/**/*.ts\"",
+    "test:format": "prettier --write \"src/**/*.tsx\"",
     "predeploy": "cd example && yarn install && yarn run build",
     "deploy": "gh-pages -d example/build",
-    "prepublishOnly": "jest --config jestconfig.json && run-s test:lint",
+    "prepublishOnly": "run-s test",
     "preversion": "run-s test:lint",
     "version": "run-s test:format && git add -A src",
     "postversion": "git push && git push --tags"
