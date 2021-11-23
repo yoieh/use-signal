@@ -2,7 +2,6 @@ import { renderHook, act } from '@testing-library/react-hooks'
 
 import { useSignal } from './useSignal'
 import { useListener } from './useListener'
-import { Signal } from '../../../signal/src/Signal'
 
 describe('>>> useListener', () => {
   it('should trigger listener function', () => {
