@@ -1,12 +1,11 @@
-import React, { useState, useCallback, useEffect } from 'react'
-import { useSignal } from '@yoieh/use-signal'
+import React, { useCallback, useState } from 'react'
+import { useListener, useSignal } from '@yoieh/use-signal'
 
-export const UseSignalExample = () => {
+export const UseListenerExample = () => {
   const [dispacheLog, setDispacheLog] = useState<string[]>([])
-
   const [count, setCount] = useState(0)
 
-  const signal = useSignal<any>()
+  const signal = useSignal()
 
   const funk = useCallback((data: string) => {
     setCount((pre) => {
@@ -20,10 +19,7 @@ export const UseSignalExample = () => {
     })
   }, [])
 
-  useEffect(() => {
-    signal.add(funk)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  const listener = useListener(signal, funk)
 
   return (
     <div>
@@ -45,34 +41,18 @@ export const UseSignalExample = () => {
         <button
           type='button'
           onClick={() => {
-            console.log('Add')
-            signal.add(funk)
+            console.log('Dispose')
+            listener.dispose()
           }}
         >
-          add
+          dispose
         </button>
       </div>
 
       <div>
         {dispacheLog.map((item, index) => (
-          <div key={index}>
-            <button
-              type='button'
-              onClick={() => {
-                signal.remove(signal.listeners[index])
-              }}
-            >
-              remove
-            </button>
-            {item}
-          </div>
+          <div key={index}>{item}</div>
         ))}
-      </div>
-
-      <div>
-        <button type='button' onClick={() => signal.removeAll()}>
-          removeAll
-        </button>
       </div>
     </div>
   )

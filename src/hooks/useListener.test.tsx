@@ -2,42 +2,50 @@ import { renderHook, act } from '@testing-library/react-hooks'
 
 import { useSignal } from './useSignal'
 import { useListener } from './useListener'
+import { Signal } from '../../../signal/src/Signal'
 
 describe('>>> useListener', () => {
   it('should trigger listener function', () => {
     const spy = jest.fn()
 
-    const {
-      result: { current: s }
-    } = renderHook(() => useSignal<any>())
+    const { result: sResult } = renderHook(() => useSignal<any>())
 
-    const {
-      result: { current: l }
-    } = renderHook(() => useListener<any>(s, spy))
+    const { result: lResult } = renderHook(() =>
+      useListener<any>(sResult.current, spy)
+    )
 
     act(() => {
-      s.dispatch()
-      l.dispose()
+      sResult.current.dispatch()
+      lResult.current.dispose()
     })
 
     expect(spy).toHaveBeenCalled()
   })
 
   it('should dispose on dispose', () => {
-    const spy = jest.fn()
+    const spy1 = jest.fn()
+    const spy2 = jest.fn()
 
-    const {
-      result: { current: s }
-    } = renderHook(() => useSignal<any>())
+    const { result: sResult } = renderHook(() => useSignal<any>())
 
-    const {
-      result: { current: l }
-    } = renderHook(() => useListener<any>(s, spy))
+    const { result: lResult } = renderHook(() =>
+      useListener<any>(sResult.current, spy1)
+    )
 
-    expect(s.listeners.length).toBe(1)
+    renderHook(() => useListener<any>(sResult.current, spy2))
+
+    expect(sResult.current.listeners.length).toBe(2)
     act(() => {
-      l.dispose()
+      lResult.current.dispose()
     })
-    expect(s.listeners.length).toBe(0)
+
+    const fireAmount = 4
+
+    act(() => {
+      ;[...Array(fireAmount)].forEach(() => sResult.current.dispatch())
+    })
+
+    expect(spy1).toBeCalledTimes(0)
+    expect(spy2).toBeCalledTimes(fireAmount)
   })
 })

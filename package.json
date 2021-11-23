@@ -38,10 +38,11 @@
     "react-test-renderer": "^17.0.2"
   },
   "devDependencies": {
+    "@testing-library/dom": "^8.11.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/react-hooks": "^7.0.2",
-    "@testing-library/user-event": "^7.2.1",
+    "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^25.1.4",
     "@types/node": "^12.12.38",
     "@types/react": "^16.9.27",
@@ -71,5 +72,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "@yoieh/signal": "^0.0.10"
+  }
 }
