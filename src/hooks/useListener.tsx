@@ -5,7 +5,7 @@ import { useMemo, useEffect } from 'react'
 export function useListener<Listener extends (...args: any[]) => any>(
   signal: Signal<Listener>,
   fn: Listener
-) {
+): SignalListener<Listener> {
   const listener = useMemo(() => new SignalListener<Listener>(signal, fn), [])
 
   useEffect(() => {
@@ -14,6 +14,6 @@ export function useListener<Listener extends (...args: any[]) => any>(
     }
   })
 
-  return { ...listener }
+  return listener
 }
 export default useListener
