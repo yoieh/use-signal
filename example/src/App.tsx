@@ -1,10 +1,13 @@
 import React from 'react'
-
-import { ExampleComponent } from 'use-signal'
-import 'use-signal/dist/index.css'
+import { UseSignalExample } from './UseSignalExample'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return (
+    <div>
+      <h3>UseSignalExample</h3>
+      <UseSignalExample></UseSignalExample>
+    </div>
+  )
 }
 
 export default App
