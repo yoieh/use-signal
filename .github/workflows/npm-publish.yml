@@ -63,7 +63,7 @@ jobs:
           key: node-modules-${{ hashFiles('package-lock.json') }}
       
       - name: Run build    
-        run: npm build
+        run: npm run build
       
       - uses: actions/upload-artifact@v2
         with:
