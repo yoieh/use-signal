@@ -2192,10 +2192,10 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
-"@yoieh/signal@^0.0.14":
-  version "0.0.14"
-  resolved "https://registry.yarnpkg.com/@yoieh/signal/-/signal-0.0.14.tgz#fd0e3f46f598cc84a3f986708e8e2d89e54d2a1a"
-  integrity sha512-AyLMlCAle+/059zBUknLMaDZCRESL3Wd4yIxrdqKHFRMOHZnJYS2r9bYzIV71Ubo8ZRoUU3BWA5mCaWs7tMwjA==
+"@yoieh/signal@^0.0.15":
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/@yoieh/signal/-/signal-0.0.15.tgz#e060cdaf082fe47dc2f6c71a75741d9b2bc12918"
+  integrity sha512-wtJ1X4pA/RtihvJrl2Ps+yiKmxzF3f7gbFwm1d3gnxDFWq/1volrmxVl5OcuxHcupcs7bPKpPWYVllAn2NyZ8w==
   dependencies:
     tslib "^2.3.1"
 

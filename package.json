@@ -72,6 +72,6 @@
     "dist"
   ],
   "dependencies": {
-    "@yoieh/signal": "^0.0.14"
+    "@yoieh/signal": "^0.0.15"
   }
 }
